@@ -15,18 +15,32 @@
         </header>
       </form>
     </div>
-    <div>
+     <div>
       <label for="text">First Name</label>
-      <input type="text" id="text" name="text" />
+      <input type="text" id="text" name="text" placeholder="Enter your name start with capital letter"/>
       <error-output class="text-error" for="text"></error-output>
     </div>
+    <div>
+      <label for="email">Enter your email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email email address" />
+      <error-output class="email-error" for="email"></error-output>
+    </div>
+  </form>
     <script>
       const text = document.querySelector("#text");
       const textError = document.querySelector(".text-error");
       text.addEventListener("input", function () {
         let firstNameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
         if (firstNameRegex.test(text.value)) textError.textContent = "";
-        else textError.textContent = "First Name is Incorrect";
+        else textError.textContent = "Enter valid name";
+      });
+
+      const email = document.querySelector("#email");
+      const emailError = document.querySelector(".email-error");
+      email.addEventListener("input", function () {
+        let emailNameRegex = RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/");
+        if (emailNameRegex.test(email.value)) emailError.emailContent = "";
+        else textError.textContent = "Invalid email ";
       });
     </script>
   </body>
