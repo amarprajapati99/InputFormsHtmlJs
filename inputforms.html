@@ -22,13 +22,18 @@
     </div>
     <div>
       <label for="email">Enter your email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your emailaddress" />
+      <input type="email" id="email" name="email" placeholder="Enter your email address" />
       <error-output class="email-error" for="email"></error-output>
     </div>
     <div>
       <label for="mobile number">Enter your mobile number</label>
       <input type="mobile" id="mobile" name="mobile"  placeholder="Enter your mobile number" />
       <error-output class="mobile" for="mobile"></error-output>
+    </div>
+    <div>
+      <label for="password">Enter your password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" />
+      <error-output class="password" for="password"></error-output>
     </div>
   </form>
     <script>
@@ -48,12 +53,12 @@
         else emailError.emailContent = "Invalid email ";
       });
 
-      const mobile = document.querySelector("#mobile");
-      const mobileError = document.querySelector(".mobile-error");
-      mobile.addEventListener("input", function () {
-        let mobileRegex = RegExp("^((\\+)?(\\d{2}[-]))?(\\d{10}){1}?$");
-        if (mobileRegex.test(mobile.value)) mobileError.emailContent = "";
-        else mobileError.mobileContent = "Invalid mobile number ";
+      const password = document.querySelector("password");
+      const passwordError = document.querySelector(". password-error");
+      password.addEventListener("input", function () {
+        let passwordRegex = RegExp("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+        if (passwordRegex.test(password.value))passwordError.passwordContent = "";
+        else passwordError.passwordContent ="Enter valid password"
       });
     </script>
   </body>
